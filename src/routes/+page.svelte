@@ -93,7 +93,7 @@
 
 <PetalBurst active={petals} />
 
-<audio bind:this={audio} loop preload="none" src="/music/wedding.mp3"></audio>
+
 
 <nav class="nav" class:visible={opened}>
   <button class="brand" onclick={() => scrollTo('home')} aria-label="Home">K <span>♡</span> N</button>
@@ -103,7 +103,7 @@
     <button class:active={activeSection === 'reception'} onclick={() => scrollTo('reception')}>Reception</button>
     <button class:active={activeSection === 'countdown'} onclick={() => scrollTo('countdown')}>Countdown</button>
   </div>
-  <button class="music" onclick={toggleMusic} aria-label="Toggle music">{musicOn ? '♫' : '♪'}</button>
+  
 </nav>
 
 <main>
