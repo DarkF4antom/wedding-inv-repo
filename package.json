@@ -10,12 +10,12 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json"
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "latest",
-    "@sveltejs/kit": "latest",
-    "@sveltejs/vite-plugin-svelte": "latest",
-    "svelte": "latest",
-    "svelte-check": "latest",
-    "typescript": "latest",
-    "vite": "latest"
+    "@sveltejs/adapter-static": "^3.0.8",
+    "@sveltejs/kit": "^2.37.0",
+    "@sveltejs/vite-plugin-svelte": "^6.1.4",
+    "svelte": "^5.38.0",
+    "svelte-check": "^4.3.1",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.5"
   }
 }
