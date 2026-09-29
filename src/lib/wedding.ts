@@ -18,7 +18,7 @@ export const wedding = {
     location: 'Vadanappally'
   },
   reception: {
-    time: '5:00 PM onwards',
+    time: '6:00 PM onwards',
     venue: 'St. John the Baptist Church Hall',
     location: 'Kodakara'
   }
