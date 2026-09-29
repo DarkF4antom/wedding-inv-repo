@@ -20,6 +20,7 @@
   let rsvpGuests = 1;
   let rsvpMessage = '';
   let rsvpWebsite = '';
+  let cardModalOpen = false;
 
   let countdown = {
     days: 0,
@@ -75,6 +76,14 @@
   function scrollTo(id: string, stage: number) {
     if (stage > unlockedStage) return;
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function openCardModal() {
+    cardModalOpen = true;
+  }
+
+  function closeCardModal() {
+    cardModalOpen = false;
   }
 
   async function submitRsvp() {
@@ -216,12 +225,6 @@
       {/if}
     </div>
 
-    <div class="corner-image left-corner">
-      <img src="/images/floral.png" alt="" />
-    </div>
-    <div class="corner-image right-corner">
-      <img src="/images/floral.png" alt="" />
-    </div>
   </section>
 
   {#if unlockedStage >= 1}
@@ -235,30 +238,15 @@
         <div class="gold-rule"></div>
 
         <p class="body-copy">
-          Please join us as Krishna and Nidhun begin their journey together.
-          Your presence and blessings will make this celebration even more special.
+          With the blessings of their families, Krishna and Nidhun invite you
+          to share in the joy of their wedding celebration.
         </p>
 
-        <div class="couple-portraits">
-          <article class="portrait-card">
-            <div class="portrait-frame">
-              <img src="/images/bride.png" alt="Bride" />
-            </div>
-            <h3 class="portrait-name">{wedding.bride.name}</h3>
-            <p class="family">{wedding.bride.relation}</p>
-            <p class="parents">{wedding.bride.parents}</p>
-          </article>
-
-          <div class="portrait-divider">♡</div>
-
-          <article class="portrait-card">
-            <div class="portrait-frame">
-              <img src="/images/groom.png" alt="Groom" />
-            </div>
-            <h3 class="portrait-name">{wedding.groom.name}</h3>
-            <p class="family">{wedding.groom.relation}</p>
-            <p class="parents">{wedding.groom.parents}</p>
-          </article>
+        <div class="couple-photo-wrap">
+          <div class="couple-photo-frame">
+            <img src="/images/couple.png" alt="Krishna and Nidhun" class="couple-photo" />
+          </div>
+          <p class="couple-photo-caption">Krishna &amp; Nidhun</p>
         </div>
 
         <div class="date-card">
@@ -266,6 +254,10 @@
           <strong>{wedding.dateShort}</strong>
           <span>Wedding Day</span>
         </div>
+
+        <button class="card-button" onclick={openCardModal}>
+          View Card
+        </button>
 
         <button class="outline-button" onclick={() => unlockAndGo(2, 'muhurtham')}>
           View Wedding Details <span>↓</span>
@@ -468,3 +460,21 @@
     </section>
   {/if}
 </main>
+
+{#if cardModalOpen}
+  <div class="card-modal-backdrop" role="presentation" onclick={closeCardModal}>
+    <div
+      class="card-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Wedding invitation card"
+      onclick={(event) => event.stopPropagation()}
+    >
+      <button class="card-modal-close" aria-label="Close wedding card" onclick={closeCardModal}>×</button>
+
+      <div class="card-modal-image-wrap">
+        <img src="/images/wedding-card.png" alt="Wedding invitation card" />
+      </div>
+    </div>
+  </div>
+{/if}
